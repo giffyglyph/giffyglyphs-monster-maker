@@ -1,0 +1,19 @@
+// Common book abstracts
+
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+// Common book styles
+
+@import 'pages/page--building-an-encounter';
+@import 'pages/page--contents';
+@import 'pages/page--faq';
+@import 'pages/page--making-attacks';
+@import 'pages/page--making-monsters';
+@import 'pages/page--overkill-attacks';
+@import 'pages/page--monster-templates';
+@import 'pages/page--randomizing-damage';
+@import 'pages/page--ratings-and-levels';
+@import 'pages/page--section';
+
+@import 'themes/theme--pf';

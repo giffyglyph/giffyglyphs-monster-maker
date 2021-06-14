@@ -1,0 +1,140 @@
+// Styles for monster templates pages.
+
+.page--monster-templates {
+
+  .table--monster-templates {
+    @include table-column(1, left, 9.5%);
+    @include table-column(2, left, 10%);
+    @include table-column(3, center, 5%);
+    @include table-column(4, center, 7%);
+    @include table-column(5, center, 9%);
+    @include table-column(6, center, 7%);
+    @include table-column(7, center, 7%);
+    @include table-column(8, center, 7%);
+    @include table-column(9, center, 5%);
+    @include table-column(10, center, 5%);
+    @include table-column(11, center, 5%);
+    @include table-column(12, center, 10%);
+    @include table-column(13, center, 5%);
+    @include table-column(14, center, 8.5%);
+  
+    thead tr:first-of-type,
+    tfoot tr:last-of-type {
+  
+      th:nth-child(4) {
+        width: 16%;
+      }
+  
+      th:nth-child(5),
+      th:nth-child(6),
+      th:nth-child(7) {
+        width: 7%;
+      }
+  
+      th:nth-child(8),
+      th:nth-child(9),
+      th:nth-child(10) {
+        width: 5%;
+      }
+  
+      th:nth-child(11) {
+        width: 10%;
+      }
+  
+      th:nth-child(12) {
+        width: 5%;
+      }
+  
+      th:nth-child(13) {
+        width: 8.5%;
+      }
+
+      th:nth-child(6),
+      th:nth-child(8),
+      th:nth-child(9),
+      th:nth-child(10) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  
+    thead tr:last-of-type {
+      margin-top: -22.5px;
+    }
+  
+    tfoot tr {
+  
+      &:first-of-type {
+  
+        th {
+          padding-bottom: 0;
+        }
+      }
+  
+      &:last-of-type {
+        margin-top: -22.5px;
+  
+        th {
+          padding-top: 7.5px;
+        }
+  
+        th:nth-of-type(4) {
+          padding-top: 22.5px;
+        }
+      }
+    }
+  
+    thead tr:last-of-type,
+    tfoot tr:first-of-type {
+  
+      th:nth-child(1) {
+        width: 24.5%;
+      }
+  
+      th:nth-child(2) {
+        width: 7%;
+        text-align: center;
+      }
+  
+      th:nth-child(3) {
+        width: 9%;
+        text-align: center;
+      }
+  
+      th:nth-child(4) {
+        width: 59.5%;
+      }
+    }
+  
+    tbody tr:not(:first-child).section {
+  
+      td {
+        border-top: 1px solid rgba($panel--list__header--bg, 0.5);
+        margin-top: -1px;
+      }
+    }
+  
+    tbody tr:not(.section) td:first-of-type {
+      visibility: hidden;
+    }
+
+    thead tr:first-of-type th:nth-child(4),
+    thead tr:last-of-type th:nth-child(2),
+    tfoot tr:first-of-type th:nth-child(2),
+    tfoot tr:last-of-type th:nth-child(4),
+    tbody td:nth-child(4),
+    thead tr:first-of-type th:nth-child(5),
+    thead tr:last-of-type th:nth-child(4),
+    tfoot tr:first-of-type th:nth-child(4),
+    tfoot tr:last-of-type th:nth-child(5),
+    tbody td:nth-child(6),
+    thead tr:first-of-type th:nth-child(8),
+    tfoot tr:last-of-type th:nth-child(8),
+    tbody td:nth-child(9),
+    thead tr:first-of-type th:nth-child(11),
+    tfoot tr:last-of-type th:nth-child(11),
+    tbody td:nth-child(12) {
+      border-left-color: $panel--list__header--bg;
+    }
+  }
+}

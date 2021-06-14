@@ -1,0 +1,14 @@
+// Styles for building an encounter pages.
+
+.page--building-an-encounter {
+
+	.table--monster-encounter-difficulty {
+    @include table-column(1, left, 20%);
+		@include table-column(2, left, 80%);
+  }
+
+  .tables--monster-value .table {
+    @include table-column(1, left, 50%);
+		@include table-column(2, left, 50%);
+  }
+}

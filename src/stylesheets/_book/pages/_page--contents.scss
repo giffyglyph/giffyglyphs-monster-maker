@@ -1,0 +1,29 @@
+// Styles for contents pages.
+
+.page--contents {
+
+	.panel--contents {
+
+		.panel__body {
+			padding-top: 10px;
+			padding-bottom: 8px;
+		}
+
+		ul {
+			max-height: (63 * 16.5px);
+		}
+
+		li {
+			line-height: 16.5px;
+
+			+ li .contents__link--h0 {
+				margin-top: 16.5px;
+			}
+		}
+
+		.contents__link--h0 {
+			margin-bottom: 8.5px;
+			padding: 5px 0 3px;
+		}
+	}
+}
