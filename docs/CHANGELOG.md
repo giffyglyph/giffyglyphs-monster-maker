@@ -6,6 +6,9 @@
 [![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
 [![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
 
+## v2.1.2
+* Updated PDF and website styles to match latest **Darker Dungeons** appearance.
+
 ## v2.1.0
 * Complete style and layout revamp—prettier stat blocks, yay.
 * Added 15+ new traits (p8-9)
