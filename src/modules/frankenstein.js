@@ -1,19 +1,3 @@
-'use strict';
-
-module.exports = {
-	getRoles: getRoles,
-	getTraits: getTraits,
-	getTypes: getTypes,
-	formatNumber: formatNumber,
-	formatSaves: formatSaves,
-	formatAbilities: formatAbilities,
-	getStatsForLevel: getStatsForLevel,
-	getMonsterStats: getMonsterStats,
-	createMonsters: createMonsters,
-	createMonsterInfo: createMonsterInfo,
-	removeShortcodes: removeShortcodes
-};
-
 const ROLES = [
 	{
 		name: 'Controller',
@@ -872,49 +856,12 @@ const XP = {
 };
 
 /**
- * Get a role
- * @param {string} name
- * @return {object} role
- */
-function getRole (name) {
-	return ROLES.find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
-}
-
-/**
- * Get a type
- * @param {string} name
- * @return {object} type
- */
-function getType (name) {
-	return TYPES.find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
-}
-
-/**
- * Get a trait
- * @param {string} name
- * @return {object} trait
- */
-function getTrait (name) {
-	return TRAITS.find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
-}
-
-/**
- * Get a power from a role
- * @param {string} role
- * @param {string} name
- * @return {object} power
- */
-function getPower (role, name) {
-	return role['powers'].find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
-}
-
-/**
  * Format a number to show/hide positive/minus signs.
  * @param {number} number
  * @param {boolean} hidePositive
  * @return {string} formatted number
  */
-function formatNumber (number, hidePositive) {
+export function formatNumber (number, hidePositive) {
 	const positive = (hidePositive) ? '' : '+';
 	return (number >= 0) ? positive + number : `&minus;${Math.abs(number)}`;
 }
@@ -925,7 +872,7 @@ function formatNumber (number, hidePositive) {
  * @param {boolean} hidePositive
  * @return {string} formatted number
  */
-function formatSaves (array, hidePositive) {
+export function formatSaves (array, hidePositive) {
 	const values = Array.from(new Set(Object.values(array)));
 	let output = '';
 	values.forEach(function (number, i) {
@@ -943,7 +890,7 @@ function formatSaves (array, hidePositive) {
  * @param {boolean} hidePositive
  * @return {string} formatted number
  */
-function formatAbilities (array, hidePositive) {
+export function formatAbilities (array, hidePositive) {
 	const values = Object.values(array);
 	let output = '';
 	values.forEach(function (number, i) {
@@ -956,20 +903,11 @@ function formatAbilities (array, hidePositive) {
 }
 
 /**
- * Capitalise a string.
- * @param {string} string
- * @return {string} capitalised string
- */
-function capitalise (string) {
-	return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
-}
-
-/**
  * Get the monster stats for a specific level.
  * @param {number} level
  * @return {object} level stats
  */
-function getStatsForLevel (level) {
+export function getStatsForLevel (level) {
 	const proficiency = Math.floor((level + 3) / 4) + 1;
 	const ability = Math.floor(level / 4) + 3;
 	const player = {
@@ -1023,10 +961,10 @@ function getStatsForLevel (level) {
  * @param {object} options
  * @return {object} monster stats
  */
-function getMonsterStats (options) {
+export function getMonsterStats (options) {
 	const level = getStatsForLevel(parseInt(options.level));
-	const role = getRole(options.role);
-	const type = getType(options.type);
+	const role = _getRole(options.role);
+	const type = _getType(options.type);
 	let hp = Math.max(Math.ceil(level.hp * (role.hp / 100) * (type.hp / 100)), 1);
 	const players = options.players ? options.players : 4;
 	const priorities = options.priorities ? options.priorities.split('|') : [ 'STR', 'CON', 'DEX', 'INT', 'WIS', 'CHA' ];
@@ -1064,7 +1002,7 @@ function getMonsterStats (options) {
 	}
 	if (options.traits) {
 		options.traits.forEach(function (name) {
-			const trait = getTrait(name);
+			const trait = _getTrait(name);
 			if (trait) {
 				traits.push(trait);
 			}
@@ -1073,7 +1011,7 @@ function getMonsterStats (options) {
 	const powers = [];
 	if (options.powers) {
 		options.powers.forEach(function (name) {
-			const power = getPower(role, name);
+			const power = _getPower(role, name);
 			if (power) {
 				powers.push(power);
 			}
@@ -1138,13 +1076,161 @@ function getMonsterStats (options) {
 }
 
 /**
+ * Get all monster roles.
+ * @return {object[]} roles
+ */
+export function getRoles () {
+	return ROLES;
+}
+
+/**
+ * Get all monster traits.
+ * @return {object[]} traits
+ */
+export function getTraits () {
+	return TRAITS;
+}
+
+/**
+ * Get all monster types.
+ * @return {object[]} types
+ */
+export function getTypes () {
+	return TYPES;
+}
+
+/**
+ * Create monsters found in html DOM.
+ * @param {object} html DOM
+ * @return {object} html DOM
+ */
+export function createMonsters (html) {
+	html.querySelectorAll('monster:not(.premade)').forEach(function (monster) {
+		try {
+			const options = {
+				name: monster.getAttribute('data-name'),
+				description: monster.getAttribute('data-description'),
+				level: monster.getAttribute('data-level') === null ? 1 : Number(monster.getAttribute('data-level')),
+				role: monster.getAttribute('data-role'),
+				traits: monster.getAttribute('data-traits') === null ? [] : monster.getAttribute('data-traits').split(','),
+				powers: monster.getAttribute('data-powers') === null ? [] : monster.getAttribute('data-powers').split(','),
+				type: monster.getAttribute('data-type') === null ? 'Standard' : monster.getAttribute('data-type'),
+				priorities: monster.getAttribute('data-priorities') === null ? [] : monster.getAttribute('data-priorities'),
+				phase: monster.getAttribute('data-phase') === null ? 0 : monster.getAttribute('data-phase'),
+				vulnerabilities: monster.getAttribute('data-vulnerabilities'),
+				immunities: monster.getAttribute('data-immunities'),
+				senses: monster.getAttribute('data-senses'),
+				languages: monster.getAttribute('data-languages'),
+				class: monster.getAttribute('data-class')
+			};
+
+			const stats = getMonsterStats(options);
+			const hide = monster.getAttribute('data-hide') === null ? false : monster.getAttribute('data-hide');
+			monster.outerHTML = _renderMonster(stats, monster.innerHTML, hide);
+		} catch (err) {
+			console.error('Could not create monster block', err);
+		}
+	});
+	return html;
+}
+
+/**
+ * Create monster info found in html DOM.
+ * @param {object} html DOM
+ * @return {object} html DOM
+ */
+export function createMonsterInfo (html) {
+	html.querySelectorAll('monster-info').forEach(function (monster) {
+		try {
+			const options = {
+				level: monster.getAttribute('data-level') === null ? 1 : Number(monster.getAttribute('data-level')),
+				role: monster.getAttribute('data-role'),
+				type: monster.getAttribute('data-type') === null ? 'Standard' : monster.getAttribute('data-type')
+			};
+
+			const stats = getMonsterStats(options);
+			const multiplier = monster.getAttribute('data-multiplier') === null ? 1 : Number(monster.getAttribute('data-multiplier'));
+			switch (monster.getAttribute('data-field')) {
+			case 'damage':
+				monster.innerHTML = Math.floor(stats.stats.damage * multiplier);
+				break;
+			case 'hp-max':
+				monster.innerHTML = Math.floor(stats.stats.hp.max * multiplier);
+				break;
+			case 'attack':
+				monster.innerHTML = formatNumber(Math.floor(stats.stats.attack * multiplier));
+				break;
+			}
+		} catch (err) {
+			console.error('Could not create monster block', err);
+		}
+	});
+	return html;
+}
+
+/**
+ * Remove monster shortcodes from a string.
+ * @param {string} string
+ * @return {string} formatted string
+ */
+export function removeShortcodes (string) {
+	return string.replace(/ \(\[level\]\)/g, '');
+}
+
+/**
+ * Get a role
+ * @param {string} name
+ * @return {object} role
+ */
+function _getRole (name) {
+	return ROLES.find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
+}
+
+/**
+ * Get a type
+ * @param {string} name
+ * @return {object} type
+ */
+function _getType (name) {
+	return TYPES.find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
+}
+
+/**
+ * Get a trait
+ * @param {string} name
+ * @return {object} trait
+ */
+function _getTrait (name) {
+	return TRAITS.find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
+}
+
+/**
+ * Get a power from a role
+ * @param {string} role
+ * @param {string} name
+ * @return {object} power
+ */
+function _getPower (role, name) {
+	return role['powers'].find((x) => x.name.toLowerCase().trim() == name.toLowerCase().trim());
+}
+
+/**
+ * Capitalise a string.
+ * @param {string} string
+ * @return {string} capitalised string
+ */
+ function _capitalise (string) {
+	return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
+}
+
+/**
  * Render a monster block.
  * @param {object} monster
  * @param {string} innerHtml
  * @param {boolean} hideDetails
  * @return {string} html
  */
-function renderMonster (monster, innerHtml, hideDetails) {
+ function _renderMonster (monster, innerHtml, hideDetails) {
 	let traits = '';
 	if (!hideDetails) {
 		monster.traits.forEach(function (trait) {
@@ -1239,7 +1325,7 @@ function renderMonster (monster, innerHtml, hideDetails) {
 					</div>
 				</div>
 				<div class='monster__saves'><strong>Saving Throws</strong>
-					${capitalise(monster.priorities[0])} ${formatNumber(monster.stats.saves[monster.priorities[0].toLowerCase()])}, ${capitalise(monster.priorities[1])}/${capitalise(monster.priorities[2])} ${formatNumber(monster.stats.saves[monster.priorities[1].toLowerCase()])}, ${capitalise(monster.priorities[3])}/${capitalise(monster.priorities[4])}/${capitalise(monster.priorities[5])} ${formatNumber(monster.stats.saves[monster.priorities[3].toLowerCase()])}</td>
+					${_capitalise(monster.priorities[0])} ${formatNumber(monster.stats.saves[monster.priorities[0].toLowerCase()])}, ${_capitalise(monster.priorities[1])}/${_capitalise(monster.priorities[2])} ${formatNumber(monster.stats.saves[monster.priorities[1].toLowerCase()])}, ${_capitalise(monster.priorities[3])}/${_capitalise(monster.priorities[4])}/${_capitalise(monster.priorities[5])} ${formatNumber(monster.stats.saves[monster.priorities[3].toLowerCase()])}</td>
 				</div>
 				<div class='monster__skills'><strong>Skills</strong>
 					 Initiative ${formatNumber(monster.stats.initiative)},
@@ -1255,106 +1341,4 @@ function renderMonster (monster, innerHtml, hideDetails) {
 			</section>
 		</monster>
 	`;
-}
-
-/**
- * Get all monster roles.
- * @return {object[]} roles
- */
-function getRoles () {
-	return ROLES;
-}
-
-/**
- * Get all monster traits.
- * @return {object[]} traits
- */
-function getTraits () {
-	return TRAITS;
-}
-
-/**
- * Get all monster types.
- * @return {object[]} types
- */
-function getTypes () {
-	return TYPES;
-}
-
-/**
- * Create monsters found in html DOM.
- * @param {object} html DOM
- * @return {object} html DOM
- */
-function createMonsters (html) {
-	html.querySelectorAll('monster:not(.premade)').forEach(function (monster) {
-		try {
-			const options = {
-				name: monster.getAttribute('data-name'),
-				description: monster.getAttribute('data-description'),
-				level: monster.getAttribute('data-level') === null ? 1 : Number(monster.getAttribute('data-level')),
-				role: monster.getAttribute('data-role'),
-				traits: monster.getAttribute('data-traits') === null ? [] : monster.getAttribute('data-traits').split(','),
-				powers: monster.getAttribute('data-powers') === null ? [] : monster.getAttribute('data-powers').split(','),
-				type: monster.getAttribute('data-type') === null ? 'Standard' : monster.getAttribute('data-type'),
-				priorities: monster.getAttribute('data-priorities') === null ? [] : monster.getAttribute('data-priorities'),
-				phase: monster.getAttribute('data-phase') === null ? 0 : monster.getAttribute('data-phase'),
-				vulnerabilities: monster.getAttribute('data-vulnerabilities'),
-				immunities: monster.getAttribute('data-immunities'),
-				senses: monster.getAttribute('data-senses'),
-				languages: monster.getAttribute('data-languages'),
-				class: monster.getAttribute('data-class')
-			};
-
-			const stats = getMonsterStats(options);
-			const hide = monster.getAttribute('data-hide') === null ? false : monster.getAttribute('data-hide');
-			monster.outerHTML = renderMonster(stats, monster.innerHTML, hide);
-		} catch (err) {
-			console.error('Could not create monster block', err);
-		}
-	});
-	return html;
-}
-
-/**
- * Create monster info found in html DOM.
- * @param {object} html DOM
- * @return {object} html DOM
- */
-function createMonsterInfo (html) {
-	html.querySelectorAll('monster-info').forEach(function (monster) {
-		try {
-			const options = {
-				level: monster.getAttribute('data-level') === null ? 1 : Number(monster.getAttribute('data-level')),
-				role: monster.getAttribute('data-role'),
-				type: monster.getAttribute('data-type') === null ? 'Standard' : monster.getAttribute('data-type')
-			};
-
-			const stats = getMonsterStats(options);
-			const multiplier = monster.getAttribute('data-multiplier') === null ? 1 : Number(monster.getAttribute('data-multiplier'));
-			switch (monster.getAttribute('data-field')) {
-			case 'damage':
-				monster.innerHTML = Math.floor(stats.stats.damage * multiplier);
-				break;
-			case 'hp-max':
-				monster.innerHTML = Math.floor(stats.stats.hp.max * multiplier);
-				break;
-			case 'attack':
-				monster.innerHTML = formatNumber(Math.floor(stats.stats.attack * multiplier));
-				break;
-			}
-		} catch (err) {
-			console.error('Could not create monster block', err);
-		}
-	});
-	return html;
-}
-
-/**
- * Remove monster shortcodes from a string.
- * @param {string} string
- * @return {string} formatted string
- */
-function removeShortcodes (string) {
-	return string.replace(/ \(\[level\]\)/g, '');
 }

@@ -1,6 +1,5 @@
-'use strict';
+import * as frankenstein from './frankenstein.js';
 
-const FRANKENSTEIN = require('./FRANKENSTEIN.js');
 const DICE = {
 	d4: {
 		description: 'Accurate',
@@ -256,10 +255,6 @@ const DICE = {
 	}
 };
 
-module.exports = {
-	apply: apply
-};
-
 /**
  * Apply project-specific functions
  * @param {object} html DOM
@@ -267,25 +262,25 @@ module.exports = {
  * @param {string} language output language
  * @return {object} html DOM
  */
-function apply (html, format, language) {
-	FRANKENSTEIN.createMonsters(html);
-	FRANKENSTEIN.createMonsterInfo(html);
+export function apply (html, format, language) {
+	frankenstein.createMonsters(html);
+	frankenstein.createMonsterInfo(html);
 
 	html.querySelectorAll('.table--monster-statistics tbody').forEach(function (element) {
 		for (let i = -5; i <= 35; i++) {
-			const level = FRANKENSTEIN.getStatsForLevel(i);
+			const level = frankenstein.getStatsForLevel(i);
 			element.innerHTML += `
 				<tr>
-					<td>${FRANKENSTEIN.formatNumber(level.level, true)}</td>
+					<td>${frankenstein.formatNumber(level.level, true)}</td>
 					<td>${level.ac}</td>
 					<td>${level.hp}</td>
-					<td>${FRANKENSTEIN.formatNumber(level.attack)}</td>
+					<td>${frankenstein.formatNumber(level.attack)}</td>
 					<td>${level.damage}</td>
 					<td>${level.dc}, ${(level.dc - 3)}</td>
-					<td>${FRANKENSTEIN.formatNumber(level.skills)}</td>
-					<td>${FRANKENSTEIN.formatNumber(level.proficiency)}</td>
-					<td>${FRANKENSTEIN.formatSaves(level.saves, true)}</td>
-					<td>${FRANKENSTEIN.formatAbilities(level.abilities, true)}</td>
+					<td>${frankenstein.formatNumber(level.skills)}</td>
+					<td>${frankenstein.formatNumber(level.proficiency)}</td>
+					<td>${frankenstein.formatSaves(level.saves, true)}</td>
+					<td>${frankenstein.formatAbilities(level.abilities, true)}</td>
 					<td>${Math.floor(level.xp / 4).toLocaleString()}</td>
 				</tr>
 			`;
@@ -293,7 +288,7 @@ function apply (html, format, language) {
 	});
 
 	html.querySelectorAll('.table--monster-roles tbody').forEach(function (element) {
-		const roles = FRANKENSTEIN.getRoles().sort(function (a, b) {
+		const roles = frankenstein.getRoles().sort(function (a, b) {
 			return a.name.localeCompare(b.name);
 		});
 
@@ -301,12 +296,12 @@ function apply (html, format, language) {
 			element.innerHTML += `
 				<tr>
 					<td>${role.name}</td>
-					<td>${role.ac != 0 ? FRANKENSTEIN.formatNumber(role.ac) : `<span class='empty'>—</span>`}</td>
-					<td>${role.saves != 0 ? FRANKENSTEIN.formatNumber(role.saves) : `<span class='empty'>—</span>`}</td>
+					<td>${role.ac != 0 ? frankenstein.formatNumber(role.ac) : `<span class='empty'>—</span>`}</td>
+					<td>${role.saves != 0 ? frankenstein.formatNumber(role.saves) : `<span class='empty'>—</span>`}</td>
 					<td>${role.hp != 100 ? `x ${role.hp / 100}` : `<span class='empty'>—</span>`}</td>
-					<td>${role.attack != 0 ? FRANKENSTEIN.formatNumber(role.attack) : `<span class='empty'>—</span>`}</td>
+					<td>${role.attack != 0 ? frankenstein.formatNumber(role.attack) : `<span class='empty'>—</span>`}</td>
 					<td>${role.damage != 100 ? `x ${role.damage / 100}` : `<span class='empty'>—</span>`}</td>
-					<td>${role.speed != 0 ? FRANKENSTEIN.formatNumber(role.speed) : `<span class='empty'>—</span>`}</td>
+					<td>${role.speed != 0 ? frankenstein.formatNumber(role.speed) : `<span class='empty'>—</span>`}</td>
 					<td>${role.perception ? `Trained` : `<span class='empty'>—</span>`}</td>
 					<td>${role.stealth ? `Trained` : `<span class='empty'>—</span>`}</td>
 					<td>${role.initiative ? `Trained` : `<span class='empty'>—</span>`}</td>
@@ -316,7 +311,7 @@ function apply (html, format, language) {
 	});
 
 	html.querySelectorAll('.table--monster-traits tbody').forEach(function (element) {
-		const traits = FRANKENSTEIN.getTraits().sort(function (a, b) {
+		const traits = frankenstein.getTraits().sort(function (a, b) {
 			return a.name.localeCompare(b.name);
 		});
 		const parent = element.closest('table');
@@ -330,7 +325,7 @@ function apply (html, format, language) {
 					<tr>
 						<td>${i + 1}</td>
 						<td>${trait.name}</td>
-						<td>${FRANKENSTEIN.removeShortcodes(trait.description)}</td>
+						<td>${frankenstein.removeShortcodes(trait.description)}</td>
 					</tr>
 				`;
 			}
@@ -338,7 +333,7 @@ function apply (html, format, language) {
 	});
 
 	html.querySelectorAll('.table--monster-powers tbody').forEach(function (element) {
-		const roles = FRANKENSTEIN.getRoles().sort(function (a, b) {
+		const roles = frankenstein.getRoles().sort(function (a, b) {
 			return a.name.localeCompare(b.name);
 		});
 		const parent = element.closest('table');
@@ -364,7 +359,7 @@ function apply (html, format, language) {
 						<tr>
 							<td>${i}</td>
 							<td>${power.name}</td>
-							<td>${FRANKENSTEIN.removeShortcodes(power.description)}</td>
+							<td>${frankenstein.removeShortcodes(power.description)}</td>
 						</tr>
 					`;
 				}
@@ -409,7 +404,7 @@ function apply (html, format, language) {
 
 			templateRoles.forEach(function (role, index) {
 				const players = tokens[1];
-				const monster = FRANKENSTEIN.getMonsterStats({
+				const monster = frankenstein.getMonsterStats({
 					name: `${type} ${role}`,
 					level: level,
 					role: role,
@@ -424,13 +419,13 @@ function apply (html, format, language) {
 						<td>${monster.stats.ac}</td>
 						<td>${monster.stats.hp.max.toLocaleString()}</td>
 						<td>${(tokens[0] == `Solo`) ? `3 x ${monster.stats.hp.phase}` : `2 x ${monster.stats.hp.bloodied}`}</td>
-						<td>${FRANKENSTEIN.formatNumber(monster.stats.attack)}</td>
+						<td>${frankenstein.formatNumber(monster.stats.attack)}</td>
 						<td>${monster.stats.damage}</td>
 						<td>${monster.stats.dc.primary}, ${monster.stats.dc.secondary}</td>
-						<td>${FRANKENSTEIN.formatNumber(monster.stats.perception, true)}</td>
-						<td>${FRANKENSTEIN.formatNumber(monster.stats.initiative, true)}</td>
-						<td>${FRANKENSTEIN.formatNumber(monster.stats.stealth, true)}</td>
-						<td>${FRANKENSTEIN.formatSaves(monster.stats.saves, true)}</td>
+						<td>${frankenstein.formatNumber(monster.stats.perception, true)}</td>
+						<td>${frankenstein.formatNumber(monster.stats.initiative, true)}</td>
+						<td>${frankenstein.formatNumber(monster.stats.stealth, true)}</td>
+						<td>${frankenstein.formatSaves(monster.stats.saves, true)}</td>
 						<td>${monster.cr}</td>
 						<td>${monster.xp}</td>
 					</tr>

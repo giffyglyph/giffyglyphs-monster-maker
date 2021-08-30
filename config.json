@@ -1,0 +1,17 @@
+{
+	"name": "monster_maker",
+	"version": "2.1.3",
+	"module": "./src/modules/monster_maker.js",
+	"formats": [
+		{
+			"name": "gg-5e-book",
+			"version": "2.0.0",
+			"languages": [ "en" ]
+		},
+		{
+			"name": "gg-5e-website",
+			"version": "2.0.0",
+			"languages": [ "en" ]
+		}
+	]
+}
