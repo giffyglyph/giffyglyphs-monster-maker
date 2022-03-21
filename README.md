@@ -1,4 +1,4 @@
-![Monster Maker Social Banner](./img/monster-maker-banner.jpg)
+![Monster Maker Social Banner](./monster-maker-banner.jpg)
 
 # Giffyglyph's Monster Maker
 
@@ -28,7 +28,7 @@ Do you want to build fun, balanced monsters in D&D 5e? Is encounter design a hug
 
 | Cover                                                    | Chapters (v3.0.0)                                           |
 | -------------------------------------------------------- | ----------------------------------------------------------- |
-| <img src="./img/monster-maker-cover.jpg" width="100%"> | <img src="./img/monster-maker-contents.jpg" width="100%"> |
+| <img src="./monster-maker-cover.jpg" width="100%"> | <img src="./monster-maker-contents.jpg" width="100%"> |
 
 ## Roadmap
 
