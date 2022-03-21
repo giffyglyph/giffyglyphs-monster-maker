@@ -9,7 +9,7 @@
 
 Do you want to build fun, balanced monsters in D&D 5e? Is encounter design a huge timesink for you? Need some varied combat options that will get you running encounters in seconds? Then try **Giffyglyph's Monster Maker**: rules, advice, and templates to help you build new monsters and prepare combat encounters with ease!
 
-* [Read the Latest PDF (v3.0.0)](https://github.com/giffyglyph/giffyglyphs-monster-maker/releases/download/v3.0.0/giffyglyphs_monster_maker_v3_0_0.pdf)
+* [Read the Latest PDF (v3.0.0)](https://github.com/giffyglyph/giffyglyphs-monster-maker/releases/download/v3.0.0/giffyglyphs_monster_maker_v3-0-0_en_pwyw.pdf)
 * [Read the Changelog](https://github.com/giffyglyph/giffyglyphs-monster-maker/blob/master/CHANGELOG.md) 
 
 ## Features
