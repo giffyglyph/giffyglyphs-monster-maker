@@ -1,0 +1,67 @@
+.page--mm-making-monsters {
+
+  .pointer {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background: white;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+
+    &.a {
+      top: 151px;
+      right: 375px;
+    }
+
+    &.b {
+      top: 196px;
+      right: 375px;
+    }
+
+    &.c {
+      top: 218px;
+      right: 122px;
+    }
+
+    &.d {
+      top: 235px;
+      right: 375px;
+    }
+
+    &.e {
+      top: 277px;
+      right: 375px;
+    }
+
+    &.f {
+      top: 294px;
+      right: 169px;
+    }
+
+    &.g {
+      top: 353px;
+      right: 375px;
+    }
+
+    &.h {
+      top: 383px;
+      right: 375px;
+    }
+
+    &.i {
+      top: 489px;
+      right: 375px;
+    }
+
+    &.j {
+      top: 894px;
+      right: 375px;
+    }
+  }
+}

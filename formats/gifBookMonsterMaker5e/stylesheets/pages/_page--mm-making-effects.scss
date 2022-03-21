@@ -1,0 +1,63 @@
+.page--mm-making-effects {
+
+  .panel--effect-types table {
+    @include column(1, 105px, left);
+  }
+
+	.table--damage-types {
+
+		.panel__body {
+			padding: 8px 7px 7px;
+			
+			ul {
+				column-count: 4;
+				column-rule: 1px dotted var(--color-table-border);
+				width: 100%;
+				padding: 0;
+
+				li {
+					position: relative;
+					padding-left: 0;
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+  .table--ongoing-durations {
+
+    .panel__body {
+      padding: 7px 5px 8px;
+    }
+  }
+
+  .panel--direct-damage table,
+  .panel--ongoing-damage table,
+  .panel--force-movement table {
+    @include column-width(1, 55px);
+    @include column-width(2, 65px);
+    @include column-width(3, 95px);
+    @include column-width(4, 55px);
+    @include column-width(5, 55px);
+		
+		th,
+		td {
+			text-align: center;
+		}
+
+		td {
+			white-space: nowrap;
+		}
+  }
+
+	.panel--terrain-modifiers table {
+		@include column(1, 96px, left);
+	}
+
+	.panel--resource-types table {
+		@include column(1, 85px, left);
+	}
+}

@@ -1,0 +1,6 @@
+.page--mm-the-swarm {
+
+	.panel--bloodied-events table {
+		@include column(1, 96px, left);
+	}
+}

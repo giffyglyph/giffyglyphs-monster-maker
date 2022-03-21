@@ -1,0 +1,91 @@
+.page--mm-making-encounters {
+
+  .table--encounter-themes {
+    @include column(1, 85px, left);
+  }
+
+  .panel--threat table + * {
+    border-left: 1px solid var(--color-header-bg);
+  }
+
+  .panel--scaler-cost {
+
+    thead tr:last-child th {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        text-align: center;
+      }
+    }
+    
+    td {
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        text-align: center;
+      }
+    }
+  }
+
+  .table--monster-tactics {
+
+		.panel__body {
+			padding: 7px 5px 8px;
+		}
+  }
+
+	.table--creature-categories,
+  .table--encounter-details {
+
+		.panel__body {
+			padding: 7px 5px 8px;
+		}
+
+    ul {
+      padding-left: 0;
+    }
+
+    li {
+      padding-left: 20px;
+
+      i {
+        width: 15px;
+        height: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-header-bg);
+        color: white;
+        border-radius: 10px;
+        font-size: 9px;
+        line-height: 15px;
+      }
+
+      + li {
+        margin-top: 7px;
+        border-top: 1px solid var(--color-table-row-odd-bg);
+        padding-top: 7px;
+
+        i {
+          top: 7px;
+        }
+      }
+    }
+
+    li::before {
+      display: none;
+    }
+  }
+
+  .encounter .encounter__image {
+    height: 133px;
+    border: 1px solid #a6a6a6;
+  };
+}

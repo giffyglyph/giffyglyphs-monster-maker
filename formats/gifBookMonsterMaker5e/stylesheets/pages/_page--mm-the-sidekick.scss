@@ -1,0 +1,6 @@
+.page--mm-the-sidekick {
+
+  .panel--table table + * {
+    border-left: 1px solid var(--color-header-bg);
+  }
+}

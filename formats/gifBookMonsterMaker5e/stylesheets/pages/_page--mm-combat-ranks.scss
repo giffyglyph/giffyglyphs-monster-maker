@@ -1,0 +1,156 @@
+.page--mm-combat-ranks {
+
+	.panel--monster-template {
+		--color-header-bg: #275189;
+		--color-skills-border: #{mix(#275189, white, 20%)};
+
+    &.grunt ul {
+      column-count: 1;
+
+      strong {
+        text-transform: none;
+      }
+    };
+
+    ul {
+			list-style: none;
+			padding: 0;
+			column-count: 2;
+			column-gap: 15px;
+			column-rule: 1px solid var(--color-skills-border);
+
+			strong {
+				color: var(--color-header-bg);
+				font-weight: bold;
+				flex-grow: 1;
+				display: flex;
+
+        &.empty::after {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        em {
+          margin-left: 2px;
+        }
+
+        i {
+          margin-right: 4px;
+          width: 15px;
+          line-height: 15px;
+        }
+
+				&::after {
+					content: '';
+					display: block;
+					flex-grow: 1;
+					border-bottom: 1px dotted var(--color-skills-border);
+					margin: 0 4px 4px;
+					align-self: flex-start;
+					padding-top: 10px;
+					min-width: 1px;
+				}
+			}
+
+			li {
+				display: flex;
+
+        &::before {
+          display: none;
+        }
+			}
+		}
+
+		.trait {
+			padding-left: 19px;
+			border-top: 1px solid var(--color-skills-border);
+			margin-top: 7px;
+      position: relative;
+			padding-top: 7px;
+
+      + .trait {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+
+        p strong::before {
+          top: 0;
+        }
+      }
+
+			> ol {
+				margin-top: 0;
+			}
+
+			p strong {
+				font-variant-numeric: lining-nums;
+
+        &::before {
+          background: var(--color-header-bg);
+          width: 15px;
+          height: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          left: 0;
+          top: 7px;
+          border-radius: 10px;
+          content: '\f0da';
+          font-family: "Font Awesome 6 Pro";
+          font-weight: 900;
+          color: white;
+          justify-content: center;
+          align-items: center;
+          font-size: 9px;
+        }
+			}
+		}
+	}
+
+	.table--monster-statistics {
+    @include column-width(1, 40px);
+    @include column-width(2, 60px);
+    @include column-width(3, 35px);
+    @include column-width(4, 35px);
+    @include column-width(5, 35px);
+    @include column-width(6, 35px);
+    @include column-width(7, 35px);
+    @include column-width(8, 35px);
+    @include column-width(9, 35px);
+    @include column-width(10, 35px);
+    @include column-width(11, 35px);
+    @include column-width(12, 60px);
+
+    thead tr:nth-child(1) th:nth-child(2),
+    thead tr:nth-child(1) th:nth-child(3),
+    thead tr:nth-child(1) th:nth-child(4),
+    thead tr:nth-child(1) th:nth-child(5),
+    thead tr:nth-child(1) th:nth-child(6),
+    thead tr:nth-child(2) th:nth-child(1),
+    thead tr:nth-child(2) th:nth-child(4),
+    thead tr:nth-child(2) th:nth-child(7),
+    thead tr:nth-child(2) th:nth-child(10),
+    thead tr:nth-child(2) th:nth-child(13),
+    td:nth-child(2),
+    td:nth-child(5),
+    td:nth-child(8),
+    td:nth-child(11) {
+      border-left-color: var(--color-header-bg) !important;
+    }
+		
+		th,
+		td {
+			text-align: center;
+		}
+
+		td {
+			white-space: nowrap;
+		}
+
+    thead tr:last-child th {
+      padding-left: 0;
+      padding-right: 0;
+    }
+	}
+}

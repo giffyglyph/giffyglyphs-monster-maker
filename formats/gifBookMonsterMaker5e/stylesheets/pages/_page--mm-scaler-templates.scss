@@ -1,0 +1,62 @@
+.page--mm-scaler-templates {
+
+	.table--scaler-templates {
+    @include column-width(1, 70px);
+    @include column-width(2, 35px);
+    @include column-width(3, 35px);
+    @include column-width(4, 35px);
+    @include column-width(5, 35px);
+    @include column-width(6, 35px);
+    @include column-width(7, 35px);
+    @include column-width(8, 35px);
+    @include column-width(9, 35px);
+    @include column-width(10, 35px);
+    @include column-width(11, 35px);
+    @include column-width(12, 35px);
+    @include column-width(13, 50px);
+    @include column-width(14, 35px);
+    @include column-width(15, 50px);
+
+		th,
+		td {
+			text-align: center;
+		}
+
+		tr:first-child th,
+		td {
+			
+			&:first-child {
+				text-align: left;
+			}
+		}
+
+		th.header {
+			padding-top: 4px !important;
+		}
+
+    thead tr:last-child th {
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+
+    thead tr:nth-child(1) th:nth-child(2),
+    thead tr:nth-child(1) th:nth-child(3),
+    thead tr:nth-child(1) th:nth-child(4),
+    thead tr:nth-child(1) th:nth-child(5),
+    thead tr:nth-child(1) th:nth-child(6),
+    thead tr:nth-child(1) th:nth-child(7),
+    thead tr:nth-child(2) th:nth-child(1),
+    thead tr:nth-child(2) th:nth-child(4),
+    thead tr:nth-child(2) th:nth-child(7),
+    thead tr:nth-child(2) th:nth-child(10),
+    thead tr:nth-child(2) th:nth-child(12),
+    td:nth-child(2),
+    td:nth-child(5),
+    td:nth-child(8),
+    td:nth-child(11),
+    td:nth-child(13),
+    td:nth-child(14) {
+      border-left-color: var(--color-header-bg) !important;
+    }
+	}
+}

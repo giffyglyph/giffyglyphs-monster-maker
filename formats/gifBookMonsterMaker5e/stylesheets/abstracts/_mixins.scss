@@ -1,0 +1,18 @@
+@mixin column($column, $width, $align) {
+
+	th:nth-child(#{$column}) {
+		width: $width;
+		text-align: $align;
+	}
+
+	td:nth-child(#{$column}) {
+		text-align: $align;
+	}
+}
+
+@mixin column-width($column, $width) {
+
+	colgroup col:nth-child(#{$column}) {
+		width: $width;
+	}
+}

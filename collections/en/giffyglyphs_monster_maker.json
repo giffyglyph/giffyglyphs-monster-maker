@@ -1,0 +1,226 @@
+{
+	"filename":"giffyglyphs_monster_maker",
+	"contents":[
+		{
+			"type":"COVER_FRONT",
+			"title":{
+				"highlight":"Giffyglyph's",
+				"main":"Monster Maker"
+			},
+			"icon":{
+				"filename":"beholder-small",
+				"css":"transform: scale(1.15); top: 242px"
+			},
+      "supplement":"A 5th Edition Supplement",
+			"blurb":"Create your own scaling monsters and encounters",
+			"author":"Giffyglyph"
+		},
+		"toc",
+		"introduction",
+    {
+			"type":"SECTION",	
+			"title":{
+				"highlight":"Part 1",
+				"main":"Scalers",
+				"description": "Build scaling monsters for your combat encounters."
+			},
+			"fragments":[
+				{
+					"filename":"making_monsters",
+					"title":"Making Monsters",
+					"id":"making-monsters",
+					"description":"An introduction to <em>combat scalers</em> and <em>scaling monsters</em>."
+				},
+				{
+					"filename":"combat_levels",
+					"title":"Combat Levels",
+					"id":"combat-levels",
+					"description":"How to choose a combat level based on a party, region, or tier."
+				},
+				{
+					"filename":"combat_ranks",
+					"title":"Combat Ranks",
+					"id":"combat-ranks",
+					"description":"Create 4 ranks of monster: minions, grunts, elites, and paragons."
+				},
+				{
+					"filename":"combat_roles",
+					"title":"Combat Roles",
+					"id":"combat-roles",
+					"description":"Customize your monsters with 6 combat roles, 18 subroles, and 90 special combat abilities."
+				},
+				{
+					"filename":"paragon_features",
+					"title":"Paragon Features",
+					"id":"paragon-features",
+					"description":"Give your elites and paragons more actions per round with <em>paragon power</em>."
+				},
+				{
+					"filename":"making_encounters",
+					"title":"Making Encounters",
+					"id":"making-encounters",
+					"description":"Pit your new monsters against the party with <em>scaling encounters</em>."
+				}
+			]
+		},
+    {
+			"type":"SECTION",	
+			"title":{
+				"highlight":"Part 2",
+				"main":"Features",
+				"description": "Equip your monsters with a range of traits, attacks, and utilities."
+			},
+			"fragments":[
+        {
+					"filename":"monstrous_traits",
+					"title":"Monstrous Traits",
+					"id":"monstrous-traits",
+					"description":"Customize your monsters with 200+ ancestral and physiological traits."
+				},
+				{
+					"filename":"making_features",
+					"title":"Making Features",
+					"id":"making-features",
+					"description":"Build a variety of traits, attacks, and utilities."
+				},
+				{
+					"filename":"making_effects",
+					"title":"Making Effects",
+					"id":"making-effects",
+					"description":"Build effects for your features–damage, conditions, movement, etc."
+				},
+				{
+					"filename":"frenzy_attacks",
+					"title":"Frenzy Attacks",
+					"id":"frenzy-attacks",
+					"description":"Combine two, three, or even <em>four</em> common actions into a single attack."
+				},
+				{
+					"filename":"overkill_attacks",
+					"title":"Overkill Attacks",
+					"id":"overkill-attacks",
+					"description":"Add a cinematic flair to your battle with over-the-top overkill attacks."
+				},
+        {
+					"filename":"the_tides_of_battle",
+					"title":"The Tides of Battle",
+					"id":"the-tides-of-battle",
+					"description":"Track the combat status of your monsters with 3 new <em>battletide conditions</em>."
+				}
+			]
+		},
+    {
+			"type":"SECTION",	
+			"title":{
+				"highlight":"Part 3",
+				"main":"Archetypes",
+				"description": "Use archetypes to add specialized powers and themes to your scaling monsters."
+			},
+			"fragments":[
+				{
+					"filename":"the_spellcaster",
+					"title":"The Spellcaster",
+					"id":"the-spellcaster",
+					"description":"Turn your monsters into spellcasters with <em>magic domains</em> and <em>spell levels</em>."
+				},
+				{
+					"filename":"the_summoner",
+					"title":"The Summoner",
+					"id":"the-summoner",
+					"description":"Summon brand-new reinforcements into battle with <em>summoning points</em>."
+				},
+				{
+					"filename":"the_swarm",
+					"title":"The Swarm",
+					"id":"the-swarm",
+					"description":"Overwhelm the enemy with packs, machines, mobs, hordes, squads, and armies."
+				},
+        {
+					"filename":"the_sidekick",
+					"title":"The Sidekick",
+					"id":"the-sidekick",
+					"description":"Give the party some monstrous allies and <em>sidekicks</em>."
+				},
+        {
+					"filename":"the_hazard",
+					"title":"The Hazard",
+					"id":"the-hazard",
+					"description":"Turn the environment against the party with <em>hazards</em>."
+				},
+				{
+					"filename":"the_lifelinker",
+					"title":"The Lifelinker",
+					"id":"the-lifelinker",
+					"description":"Turn your monsters into <em>lifelinkers</em> to share damage and spread healing."
+				}
+			]
+		},
+    {
+			"type":"SECTION",	
+			"title":{
+				"highlight":"Part 4",
+				"main":"Appendices",
+				"description": "FAQs and templates to help you get started."
+			},
+			"fragments":[
+        {
+					"filename":"expanded_conditions",
+					"title":"Expanded Conditions",
+					"id":"expanded-conditions",
+					"description":"Expand your combat options with 18 new, modular conditions."
+				},
+        {
+					"filename":"randomizing_damage",
+					"title":"Randomizing Damage",
+					"id":"randomizing-damage",
+					"description":"Turn any static average into a random dice roll."
+				},
+        {
+					"filename":"scaler_templates",
+					"title":"Scaler Templates",
+					"id":"scaler-templates",
+					"description":"Build a new monster in seconds with these pre-made templates."
+				},
+        {
+					"filename":"faqs",
+					"title":"FAQs",
+					"id":"faqs",
+					"description":"Want to know more? Check the frequently asked questions."
+				}
+			]
+		},
+		{
+			"type":"COVER_BACK",
+			"title":"Great Heroes<br/>Need Greater<br/>Villains",
+			"blurb":[
+				"No adventure is complete without a monster to battle&mdash;a wild dragon raging through the town, blood-thirsty gnolls howling in the cold night, a necromancer commanding armies of undead.",
+				"This 5th Edition supplement introduces new rules, mechanics, and templates to help any Game Master create deadly monsters, treacherous traps, and epic encounters."
+			],
+			"features": [
+				"Create scaling monsters in <br/> seconds with <strong>Combat Levels</strong>",
+				"Use <strong>Combat Ranks</strong> to build your own <br/> minions, grunts, elites, and paragons",
+				"Empower your monsters with <strong>6 Combat Roles</strong>, <strong>18 Specializations</strong>, and <br/> <strong>6 Archetypes</strong>",
+				"Equip your monsters with <strong>scaling features</strong> and <strong>Paragon Power</strong></p>",
+				"Build new, level-appropriate scaling encounters with <strong>Threat</strong>"
+			],
+			"author":"Giffyglyph"
+		}
+	],
+	"patrons":{
+		"total": 447,
+		"sigils": [
+			"Ady Veisz Dragia",
+			"AlDragonus",
+			"Anthony Campla",
+			"Fabreh",
+			"Faolan Twinbear",
+			"Hoots Kenku",
+			"Majikaloo",
+			"Necrotic Fawn",
+			"Polyblium",
+			"Rinzler",
+			"Strider",
+			"Veygabond"
+		]
+	}
+}

@@ -1,0 +1,17 @@
+.page--mm-the-summoner {
+
+	.panel--summoning-costs table {
+		@include column(2, 22%, center);
+		@include column(3, 22%, center);
+		@include column(4, 22%, center);
+
+    tr:last-child th {
+      text-align: center;
+    }
+	}
+
+	.panel--reinforcements table {
+		@include column(1, 15%, center);
+		@include column(2, 85%, left);
+	}
+}

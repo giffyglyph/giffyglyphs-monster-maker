@@ -1,0 +1,19 @@
+.page--mm-randomizing-damage {
+
+	.panel--random-rolls {
+
+		.panel__body {
+			display: block;
+			column-count: 2;
+			column-gap: 6px;
+			column-rule: 1px solid var(--color-header-bg);
+		}
+
+		.table--random-damage {
+			@include column(1, 25%, center);
+			@include column(2, 25%, center);
+			@include column(3, 25%, center);
+			@include column(4, 25%, center);
+		}
+	}
+}

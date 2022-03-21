@@ -1,0 +1,15 @@
+.page--mm-the-tides-of-battle {
+
+	.battletide-effects table {
+		@include column(1, 30px, center);
+		@include column(2, 83px, left);
+	}
+
+  .condition ul {
+    padding-left: 0 !important;
+
+    li::before {
+      display: none;
+    }
+  }
+}

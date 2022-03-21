@@ -1,0 +1,68 @@
+.page--mm-faq {
+
+  .example a {
+    line-break: anywhere;
+  }
+
+	.button-group--links {
+
+		+ * {
+			margin-top: 15px;
+		}
+
+		.button {
+      display: block;
+      background: #275189;
+      line-height: 43px;
+      color: white !important;
+      font-size: 10.5px;
+      padding: 0 4px 0 42px;
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      font-family: 'Libre Franklin';
+      display: flex;
+      align-items: center;
+      min-height: 30px;
+      line-height: 10px;
+
+			.button__icon {
+        position: absolute;
+        text-shadow: none;
+        left: 2px;
+        top: 2px;
+        background: white;
+        color: #275189;
+        height: 26px;
+        width: 26px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        padding-right: 10px;
+        clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 100%, 0% 100%);
+			}
+
+			+ * {
+				margin-top: 15px;
+			}
+
+			&.button--lg {
+
+				.button__icon {
+					height: 41px;
+					padding-bottom: 15px;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+
+	&.license {
+		
+		.page__body ol {
+			font-size: 9px;
+		}
+	}
+}

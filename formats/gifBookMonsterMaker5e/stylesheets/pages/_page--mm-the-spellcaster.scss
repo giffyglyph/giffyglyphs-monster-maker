@@ -1,0 +1,31 @@
+.page--mm-the-spellcaster {
+
+	.panel--spell-levels table {
+		@include column(2, 23px, center);
+    @include column(3, 23px, center);
+    @include column(4, 23px, center);
+    @include column(5, 23px, center);
+    @include column(6, 23px, center);
+    @include column(7, 23px, center);
+    @include column(8, 23px, center);
+    @include column(9, 23px, center);
+    @include column(10, 23px, center);
+    @include column(11, 23px, center);
+    @include column(12, 23px, center);
+    @include column(13, 23px, center);
+    @include column(14, 23px, center);
+    @include column(15, 23px, center);
+    @include column(16, 23px, center);
+    @include column(17, 23px, center);
+    @include column(18, 23px, center);
+    @include column(19, 23px, center);
+    @include column(20, 23px, center);
+    @include column(21, 23px, center);
+    @include column(22, 23px, center);
+    @include column(23, 23px, center);
+    @include column(24, 23px, center);
+    @include column(25, 23px, center);
+    @include column(26, 23px, center);
+    @include column(27, 23px, center);
+	}
+}

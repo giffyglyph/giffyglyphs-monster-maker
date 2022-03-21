@@ -1,0 +1,53 @@
+.page--mm-making-features {
+
+  .panel--recommended-features table {
+    @include column-width(1, auto);
+    @include column-width(2, auto);
+    @include column-width(3, 70px);
+    @include column-width(4, 70px);
+    @include column-width(5, 70px);
+
+    th,
+    td {
+      text-align: center
+    }
+
+    td:first-child,
+    thead tr:first-child th:first-child {
+      text-align: left;
+    }
+  }
+
+	.table--creature-categories {
+
+		.panel__body {
+			padding: 8px 7px 7px;
+			
+			ul {
+				column-count: 4;
+				column-rule: 1px dotted var(--color-table-border);
+				width: 100%;
+				padding: 0;
+
+				li {
+					position: relative;
+					padding-left: 0;
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.panel--feature-templates {
+
+		table {
+
+			td {
+        white-space: nowrap;
+      }
+		}
+	}
+}

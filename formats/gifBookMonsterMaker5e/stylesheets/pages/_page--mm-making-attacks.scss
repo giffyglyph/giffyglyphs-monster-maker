@@ -1,0 +1,78 @@
+.page--mm-making-attacks {
+
+	.table--target-quantities,
+	.table--target-categories,
+	.table--target-alliances {
+		@include column(1, 50px, left);
+	}
+
+	.table--creature-categories {
+
+		.panel__body {
+			padding: 8px 7px 7px;
+			
+			ul {
+				column-count: 4;
+				column-rule: 1px dotted var(--color-table-border);
+				width: 100%;
+				padding: 0;
+
+				li {
+					position: relative;
+					padding-left: 0;
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.panel--terrain-effects table {
+		@include column(1, 86px, left);
+	}
+
+	.panel--conditions table {
+		@include column(1, 30px, center);
+	}
+
+	.panel--range-templates table {
+		@include column(1, 30px, center);
+		@include column(2, 60px, left);
+	}
+
+	.panel--effect-types table {
+		@include column(1, 105px, left);
+	}
+
+	.panel--resource-types table {
+		@include column(1, 85px, left);
+	}
+
+	.panel--attack-templates {
+
+		.panel__body {
+			display: block;
+			column-count: 2;
+			column-gap: 6px;
+			column-rule: 1px solid var(--color-header-bg);
+		}
+
+		table {
+			@include column(1, 50px, left);
+			@include column(3, 70px, center);
+			@include column(4, 65px, center);
+		}
+	}
+
+	.panel--effect-templates table {
+		@include column(1, 40px, center);
+		@include column(2, 60px, center);
+		@include column(4, 65px, center);
+
+		th .header {
+			text-align: left;
+		}
+	}
+}

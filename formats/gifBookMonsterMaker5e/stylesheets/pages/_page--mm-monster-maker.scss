@@ -1,0 +1,102 @@
+.page--mm-monster-maker {
+
+  // &::after {
+  //   display: none;
+  // }
+
+  .panel__header,
+  .action__header {
+    // padding: 7px 5px 4px;
+  }
+
+  // .panel:not(.panel--aside) {
+  //   --color-header-bg: #ad747b;
+  // }
+
+  .panel__title,
+  .scaler__title,
+  .action__title {
+    // font-size: 16px !important;
+    // text-align: center;
+    // font-family: var(--font-body-sans-caps) !important;
+    // font-weight: bold !important;
+  }
+
+  .scaler .scaler__combat {
+    // background: var(--color-header-bg);
+  }
+
+  .action {
+    // --color-header-bg: #a6515b;
+
+    // .action__title {
+    //   font-size: 15px;
+    //   font-weight: normal;
+    //   font-family: var(--font-body-sans);
+    // }
+
+    .action__body .title::before {
+      display: none;
+    }
+    
+    .action__footer {
+      display: none;
+    }
+  }
+
+	.table--combat-stats {
+    @include column-width(1, 30px);
+    @include column-width(2, 30px);
+    @include column-width(3, 30px);
+    @include column-width(4, 30px);
+    @include column-width(5, 30px);
+    @include column-width(6, 30px);
+    @include column-width(7, 30px);
+    @include column-width(8, 30px);
+    @include column-width(9, 30px);
+    @include column-width(10, 42px);
+
+		th,
+		td {
+			text-align: center;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+		}
+
+    thead tr:nth-child(1) th:nth-child(2),
+    thead tr:nth-child(1) th:nth-child(3),
+    thead tr:nth-child(1) th:nth-child(4),
+    thead tr:nth-child(2) th:nth-child(1),
+    thead tr:nth-child(2) th:nth-child(4),
+    thead tr:nth-child(2) th:nth-child(7),
+    td:nth-child(2),
+    td:nth-child(5),
+    td:nth-child(8) {
+      border-left-color: var(--color-header-bg) !important;
+    }
+	}
+
+  .table--creature-categories {
+
+		.panel__body {
+			padding: 8px 7px 7px;
+			
+			ul {
+				column-count: 4;
+				column-rule: 1px dotted var(--color-table-border);
+				width: 100%;
+				padding: 0;
+        column-gap: 8px;
+
+				li {
+					position: relative;
+					padding-left: 0;
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

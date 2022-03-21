@@ -1,0 +1,70 @@
+.page--mm-monstrous-traits {
+
+  .panel--traits table {
+    @include column(1, 32px, center);
+    @include column(2, 125px, left);
+  }
+
+  .table--creature-categories {
+
+		.panel__body {
+			padding: 8px 7px 7px;
+			
+			ul {
+				column-count: 4;
+				column-rule: 1px dotted var(--color-table-border);
+				width: 100%;
+				padding: 0;
+
+				li {
+					position: relative;
+					padding-left: 0;
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.monstrous-traits {
+		height: 930px;
+		column-span: all;
+
+		.banner {
+			--color-header-bg: #275189;
+			--color-heading-border: #275189;
+			--banner-height-bottom: 40px;
+			width: 210px;
+
+			.banner__body {
+        counter-reset: trait;
+
+        p {
+          counter-increment: trait;
+
+          strong::before {
+            content: counter(trait, upper-alpha);
+            background: var(--color-header-bg);
+            color: white;
+            width: 15px;
+            display: inline-block;
+            text-align: center;
+            margin-right: 4px;
+            border-radius: 10px;
+          }
+        }
+
+        strong {
+          color: var(--color-header-bg);
+        }
+
+        p + p {
+          margin-top: 15px;
+          text-indent: 0;
+        }
+      }
+		}
+	}
+}
